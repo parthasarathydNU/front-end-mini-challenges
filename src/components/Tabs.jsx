@@ -8,22 +8,26 @@ const StyledTabs = styled.section`
 `;
 
 const StyledTab = styled.button`
-    background-color: white;
-    border-radius: 1rem;
-`;
-
-const StyledLink = styled.a`
-  text-decoration: none;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid grey;
+  height: 3rem;
+  width: 10rem;
+  cursor: pointer;
 `;
 
 function Tabs() {
   const routerPaths = useAppContext();
 
+  const handleTabClick = (tab) => {
+    window.location = tab;
+  };
+
   return (
     <StyledTabs>
       {routerPaths.map((routerPath) => (
-        <StyledTab>
-          <StyledLink href={routerPath.path}>{routerPath.path}</StyledLink>
+        <StyledTab onClick={() => handleTabClick(routerPath.path)}>
+          {routerPath.path}
         </StyledTab>
       ))}
     </StyledTabs>
