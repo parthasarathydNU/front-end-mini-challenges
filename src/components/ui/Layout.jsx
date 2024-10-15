@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
+import Tabs from "../Tabs";
 
 const Container = styled.section`
   height: 100vh;
@@ -9,9 +10,12 @@ const Container = styled.section`
 `
 
 function Layout({ children }) {
+
+
   return (
     <Container>
       <header>React Mini Challenges</header>
+      <Tabs />
       {children}
       <footer>Footer</footer>
     </Container>
