@@ -58,12 +58,67 @@ const calcRowButtons = [
 ];
 
 export default function Calculator() {
-  const [inputValue, setInputValue] = useState("");
+
+  const [inputValue, setInputValue] = useState(0);
+  const [sourceValue, setSourceValue] = useState(undefined);
+  const [targetValue, setTargetValue] = useState(undefined);
+  const [operation, setOperation] = useState(undefined);
+
+
+  const numberClicked = (number) => {
+    
+    const currentNumber = parseInt(inputValue);
+    const newNumber = currentNumber * 10 + number;
+    setInputValue(newNumber);
+
+  }
+
+  const actionClicked = action => {
+
+    // alert("Action clicked")
+    switch(action) {
+      case 'Clear' :
+        setInputValue(0);
+        break;
+      case 'Del' : 
+        const currentInputValue = inputValue;
+
+        if(currentInputValue > 0){
+          setInputValue(Math.floor(currentInputValue/10));
+        }
+
+        break;
+      case '+-' :
+        setInputValue(-inputValue)
+        break;
+        
+    }
+  }
 
   const onButtonClick = (e) => {
-    alert(e.target.innerText)
-    
-    
+
+    const selectedButton = e.target.innerText;
+    // We handle the logic here differently based on the selected buttons
+    /**
+     * = triggers the execution
+     * +, /, - and * set the operation, x**2 also sets the operation and sets target as well
+     * x**y sets the operation and waits for target
+     * √ root sets the operation
+     * Clear clears the values in the input and any other operations and target numbers
+     * Del removes the unit;s digit from the number in the input
+     * 
+     * +-, changes the sign of the input
+     * 
+     */
+
+    // Is this a number ? 
+    if(isNaN(parseInt(selectedButton))){
+      actionClicked(selectedButton);
+      return;
+    }
+
+    // alert("This is a numebr");
+    numberClicked(parseInt(selectedButton));
 
   }
 
