@@ -3,6 +3,7 @@ import TrafficLight from "./components/TrafficLight";
 import Layout from "./components/ui/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppContext } from "./context/AppContext";
+import ProgressBar from "./components/ProgressBar";
 
 const routerPaths = [
   {
@@ -12,6 +13,10 @@ const routerPaths = [
   {
     path: "/traffic-lights",
     element: <TrafficLight />,
+  },
+  {
+    path: "/progress-bar",
+    element: <ProgressBar />,
   },
 ];
 
