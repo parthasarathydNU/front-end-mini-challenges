@@ -1,15 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Container } from "./ui/Container";
 
-const Container = styled.section`
-  margin: auto;
-  padding: 1rem;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const CalcStructure = styled.section`
   display: flex;
