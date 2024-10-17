@@ -39,3 +39,25 @@ export const Select = styled.select`
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
   }
 `;
+
+export const Button = styled.button`
+  background-color: #4299e1;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: #3182ce;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+`;

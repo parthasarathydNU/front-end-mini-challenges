@@ -5,6 +5,7 @@ import {
   SortContainer,
   Label,
   Select,
+  Button,
 } from "../ui/ControlStyles";
 
 function TableControls({ sortConfig, onSort }) {
@@ -23,6 +24,9 @@ function TableControls({ sortConfig, onSort }) {
             <option value="humidity">Humidity</option>
             <option value="pressure">Pressure</option>
           </Select>
+          <Button onClick={() => onSort(sortConfig.key)}>
+            {sortConfig.direction === "asc" ? "Ascending" : "Descending"}
+          </Button>
         </SortContainer>
       </ControlsWrapper>
     </ControlsContainer>

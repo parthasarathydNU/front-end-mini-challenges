@@ -10,7 +10,6 @@ import {
 import { ArrowUpDown } from "lucide-react";
 
 function WeatherTable({ paginatedCitiesData, onSort, sortConfig }) {
-  const columns = Object.keys(paginatedCitiesData[0]).slice(1);
 
   const renderSortIcon = (key) => {
     if (sortConfig.key === key) {
@@ -33,7 +32,7 @@ function WeatherTable({ paginatedCitiesData, onSort, sortConfig }) {
       <StyledTable>
         <TableHead>
           <tr>
-            {columns.map((key) => (
+            {["Name", "Temperature", "Humidity", "Pressure"].map((key) => (
               <TableHeader key={key} onClick={() => onSort(key)} sortable>
                 {key.charAt(0).toUpperCase() + key.slice(1)}
                 {renderSortIcon(key)}
