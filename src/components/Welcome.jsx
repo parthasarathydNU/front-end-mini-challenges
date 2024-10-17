@@ -8,7 +8,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 2rem;
 `;
 
 function Welcome() {
@@ -20,8 +20,8 @@ function Welcome() {
 
   return (
     <Container>
-      <Title>Welcome to My React Web Apps Demo</Title>
       <CardGrid cardsContent={routerPaths} clickHandler={handleCardClick} />
+      <Title>Welcome to My React Web Apps Demo</Title>
     </Container>
   );
 }

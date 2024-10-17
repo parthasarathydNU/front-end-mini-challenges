@@ -24,7 +24,7 @@ function Layout({ children }) {
       )}
 
       {children}
-      <GithubCorner target={"_blank"} href="https://github.com/parthasarathydNU/front-end-mini-challenges" />
+      <GithubCorner direction="right" target={"_blank"} href="https://github.com/parthasarathydNU/front-end-mini-challenges" />
     </Container>
   );
 }

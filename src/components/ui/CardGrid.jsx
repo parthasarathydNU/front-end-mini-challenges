@@ -7,9 +7,8 @@ const CardGridDiv = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   position: ${(props) => (props.offset ? "absolute" : "relative")};
-  right: 0;
+  left: 0;
   gap: 1.5rem;
-  padding: 1rem;
 `;
 
 const Card = styled.div`
