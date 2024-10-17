@@ -16,7 +16,7 @@ function Layout({ children }) {
   return (
     <Container>
       <header>React Mini Challenges</header>
-      {!(window.location.pathname == "" || window.location.pathname == "/") && (
+      {!(window.location.pathname === "" || window.location.pathname === "/") && (
         <CardGrid
           cardsContent={[routes[0]]}
           clickHandler={() => window.location = "/"}
