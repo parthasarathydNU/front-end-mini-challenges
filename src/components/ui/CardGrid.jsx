@@ -6,7 +6,7 @@ const CardGridDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  position: ${props => props.offset ? 'absolute' : 'relative'};
+  position: ${(props) => (props.offset ? "absolute" : "relative")};
   right: 0;
   gap: 1.5rem;
   padding: 1rem;
@@ -32,11 +32,20 @@ const StyledLink = styled.a`
 
 function CardGrid({ cardsContent, clickHandler }) {
   return (
-    <CardGridDiv offset={!(window.location.pathname === "" || window.location.pathname === "/")}>
+    <CardGridDiv
+      offset={
+        !(window.location.pathname === "" || window.location.pathname === "/")
+      }
+    >
       {cardsContent.map((x) => (
         <Card onClick={(e) => clickHandler(x.path)}>{x.name}</Card>
       ))}
-      <StyledLink target={"_blank"} href="https://apigen.parthadhruv.com"><Card>{"Responsive Table"}</Card></StyledLink>
+      {(window.location.pathname === "" ||
+        window.location.pathname === "/") && (
+        <StyledLink target={"_blank"} href="https://apigen.parthadhruv.com">
+          <Card>{"Responsive Table"}</Card>
+        </StyledLink>
+      )}
     </CardGridDiv>
   );
 }
