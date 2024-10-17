@@ -52,9 +52,6 @@ const calcRowButtons = [
 export default function Calculator() {
 
   const [inputValue, setInputValue] = useState(0);
-  const [sourceValue, setSourceValue] = useState(undefined);
-  const [targetValue, setTargetValue] = useState(undefined);
-  const [operation, setOperation] = useState(undefined);
 
 
   const numberClicked = (number) => {
@@ -82,6 +79,8 @@ export default function Calculator() {
         break;
       case '+-' :
         setInputValue(-inputValue)
+        break;
+      default: 
         break;
         
     }
