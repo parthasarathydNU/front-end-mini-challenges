@@ -7,8 +7,26 @@ import {
   TableRow,
   TableCell,
 } from "../ui/TableStyles";
-function WeatherTable({ paginatedCitiesData }) {
+import { ArrowUpDown } from "lucide-react";
+
+function WeatherTable({ paginatedCitiesData, onSort, sortConfig }) {
   const columns = Object.keys(paginatedCitiesData[0]);
+
+  const renderSortIcon = (key) => {
+    if (sortConfig.key === key) {
+      return (
+        <ArrowUpDown
+          size={16}
+          style={{
+            marginLeft: "4px",
+            transform:
+              sortConfig.direction === "asc" ? "rotate(180deg)" : "none",
+          }}
+        />
+      );
+    }
+    return null;
+  };
 
   return (
     <TableContainer>
@@ -16,8 +34,9 @@ function WeatherTable({ paginatedCitiesData }) {
         <TableHead>
           <tr>
             {columns.map((key) => (
-              <TableHeader key={key} sortable>
+              <TableHeader key={key} onClick={() => onSort(key)} sortable>
                 {key.charAt(0).toUpperCase() + key.slice(1)}
+                {renderSortIcon(key)}
               </TableHeader>
             ))}
           </tr>
