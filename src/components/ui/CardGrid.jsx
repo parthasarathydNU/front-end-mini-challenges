@@ -9,6 +9,7 @@ const CardGridDiv = styled.div`
   position: ${props => props.offset ? 'absolute' : 'relative'};
   right: 0;
   gap: 1.5rem;
+  padding: 1rem;
 `;
 
 const Card = styled.div`
@@ -24,39 +25,10 @@ const Card = styled.div`
   }
 `;
 
-const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const StyledLink = styled.a`
+  text-decoration: none;
+  color: black;
 `;
-
-const IconWrapper = styled.div`
-  margin-bottom: 1rem;
-`;
-
-const CardTitle = styled.h2`
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-`;
-
-const CardDescription = styled.p`
-  color: #666;
-  text-align: center;
-`;
-
-const getIcon = (element) => {
-  switch (element) {
-    case "Calculator":
-      return <Calculator size={48} color="#3B82F6" />;
-    case "TrafficLight":
-      return <Lightbulb size={48} color="#EAB308" />;
-    case "ProgressBar":
-      return <BarChart size={48} color="#22C55E" />;
-    default:
-      return null;
-  }
-};
 
 function CardGrid({ cardsContent, clickHandler }) {
   return (
@@ -64,6 +36,7 @@ function CardGrid({ cardsContent, clickHandler }) {
       {cardsContent.map((x) => (
         <Card onClick={(e) => clickHandler(x.path)}>{x.name}</Card>
       ))}
+      <StyledLink target={"_blank"} href="https://apigen.parthadhruv.com"><Card>{"Responsive Table"}</Card></StyledLink>
     </CardGridDiv>
   );
 }
