@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppContext } from "./context/AppContext";
 import ProgressBar from "./components/ProgressBar";
 import Welcome from "./components/Welcome";
+import WeatherApp from "./components/weather-app/WeatherApp";
 
 const routerPaths = [
   {
@@ -26,6 +27,11 @@ const routerPaths = [
     path: "/progress-bar",
     name: "Progress Bar",
     element: <ProgressBar />,
+  },
+  {
+    path: "/weather-app",
+    name: "Weather App",
+    element: <WeatherApp />,
   },
 ];
 

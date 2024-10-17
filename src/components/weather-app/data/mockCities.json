@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "New York",
+    "humidity": 60,
+    "pressure": 1015,
+    "temperature": 22
+  },
+  {
+    "id": 2,
+    "name": "London",
+    "humidity": 75,
+    "pressure": 1008,
+    "temperature": 18
+  },
+  {
+    "id": 3,
+    "name": "Tokyo",
+    "humidity": 65,
+    "pressure": 1012,
+    "temperature": 26
+  },
+  {
+    "id": 4,
+    "name": "Paris",
+    "humidity": 70,
+    "pressure": 1010,
+    "temperature": 20
+  },
+  {
+    "id": 5,
+    "name": "Sydney",
+    "humidity": 55,
+    "pressure": 1018,
+    "temperature": 28
+  }
+]
