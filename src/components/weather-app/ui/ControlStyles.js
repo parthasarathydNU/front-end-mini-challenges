@@ -61,3 +61,23 @@ export const Button = styled.button`
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
   }
 `;
+
+export const FilterForm = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const Input = styled.input`
+  background-color: white;
+  border: 1px solid #cbd5e0;
+  color: #4a5568;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+`;
