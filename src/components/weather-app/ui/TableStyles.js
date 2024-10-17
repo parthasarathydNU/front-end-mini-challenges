@@ -26,3 +26,18 @@ export const TableHeader = styled.th`
     background-color: ${props => props.sortable ? '#edf2f7' : 'inherit'};
   }
 `;
+
+export const TableRow = styled.tr`
+  &:nth-child(even) {
+    background-color: #f7fafc;
+  }
+
+  &:hover {
+    background-color: #edf2f7;
+  }
+`;
+
+export const TableCell = styled.td`
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+`;
