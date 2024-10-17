@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Container } from "./ui/Container";
+import Container from "./ui/Container";
 
 const TrafficLightBox = styled.section`
   background-color: black;

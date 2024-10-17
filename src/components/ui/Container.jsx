@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const Container = styled.section`
+const Container = styled.section`
   margin: auto;
   padding: 1rem;
   height: 100%;
@@ -8,3 +8,5 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
 `;
+
+export default Container;

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
-  min-height: 100vh;
-  padding: 2rem;
+  overflow: auto;
 `;
 
 export const ContentWrapper = styled.div`
@@ -11,7 +10,7 @@ export const ContentWrapper = styled.div`
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  padding: 0 1.5rem;
 `;
 
 export const Header = styled.header`

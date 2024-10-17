@@ -1,10 +1,11 @@
 import React from "react";
+import CardGrid from "./CardGrid";
 import styled from "styled-components";
 import useAppContext from "../../context/AppContext";
-import CardGrid from "./CardGrid";
+import GithubCorner from 'react-github-corner';
 
 const Container = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,7 +16,6 @@ function Layout({ children }) {
 
   return (
     <Container>
-      <header>React Mini Challenges</header>
       {!(window.location.pathname === "" || window.location.pathname === "/") && (
         <CardGrid
           cardsContent={[routes[0]]}
@@ -24,7 +24,7 @@ function Layout({ children }) {
       )}
 
       {children}
-      <footer>Footer</footer>
+      <GithubCorner href="https://github.com/parthasarathydNU/front-end-mini-challenges" />
     </Container>
   );
 }

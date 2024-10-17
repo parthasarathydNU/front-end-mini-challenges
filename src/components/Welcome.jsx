@@ -2,13 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import useAppContext from "../context/AppContext";
 import CardGrid from "./ui/CardGrid";
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-`;
-
+import Container from "./ui/Container";
 
 const Title = styled.h1`
   font-size: 2.5rem;

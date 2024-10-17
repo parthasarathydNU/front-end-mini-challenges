@@ -4,34 +4,50 @@ import React, { useState, useEffect } from "react";
 import WeatherTable from "./components/WeatherTable";
 import { Title, Header, ContentWrapper, AppContainer } from "./ui/AppStyles";
 import TableControls from "./components/TableControls";
+import PaginationControls from "./components/PaginationControls";
 
 function WeatherApp() {
+  const itemsPerPage = 5;
   const [cities, setCitiesData] = useState(citiesData);
-  const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState({
     key: "name",
     direction: "asc",
   });
-  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filterConfig, setFilterConfig] = useState({ name: '', attribute: 'name', value: '' });
+
 
   useEffect(() => {
+    let filteredCities = [...citiesData];
+
+    // Apply filtering
+    if (filterConfig.value) {
+      filteredCities = filteredCities.filter(city => {
+        const cityValue = city[filterConfig.attribute];
+        if (typeof cityValue === 'string') {
+          return cityValue.toLowerCase().includes(filterConfig.value.toLowerCase());
+        } else if (typeof cityValue === 'number') {
+          return cityValue === Number(filterConfig.value);
+        }
+        return false;
+      });
+    }
+
     // Apply sorting
-    cities.sort((a, b) => {
-      if (a[sortConfig.key] < b[sortConfig.key])
-        return sortConfig.direction === "asc" ? -1 : 1;
-      if (a[sortConfig.key] > b[sortConfig.key])
-        return sortConfig.direction === "asc" ? 1 : -1;
+    filteredCities.sort((a, b) => {
+      if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.direction === 'asc' ? -1 : 1;
+      if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.direction === 'asc' ? 1 : -1;
       return 0;
     });
 
-    setCitiesData(cities);
+    setCitiesData(filteredCities);
     setCurrentPage(1);
-  }, [sortConfig]);
+  }, [sortConfig, filterConfig]);
 
-  const paginatedCities = cities.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+
+  const handleFilter = (newFilterConfig) => {
+    setFilterConfig(newFilterConfig);
+  };
 
   const handleSort = (key) => {
     setSortConfig((prevConfig) => ({
@@ -43,6 +59,15 @@ function WeatherApp() {
     }));
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginatedCities = cities.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <>
       <AppContainer>
@@ -51,12 +76,17 @@ function WeatherApp() {
             <CloudSun size={48} color="#4299e1" />
             <Title>Weather App</Title>
           </Header>
-          <TableControls onSort={handleSort} sortConfig={sortConfig} />
+          <TableControls onFilter={handleFilter} filterConfig={filterConfig} onSort={handleSort} sortConfig={sortConfig} />
           <WeatherTable
             sortConfig={sortConfig}
             onSort={handleSort}
             paginatedCitiesData={paginatedCities}
           />
+          <PaginationControls 
+            currentPage={currentPage} 
+            totalItems={paginatedCities.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={handlePageChange} />
         </ContentWrapper>
       </AppContainer>
     </>

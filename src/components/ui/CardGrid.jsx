@@ -6,6 +6,8 @@ const CardGridDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: ${props => props.offset ? 'absolute' : 'relative'};
+  right: 0;
   gap: 1.5rem;
 `;
 
@@ -58,7 +60,7 @@ const getIcon = (element) => {
 
 function CardGrid({ cardsContent, clickHandler }) {
   return (
-    <CardGridDiv>
+    <CardGridDiv offset={!(window.location.pathname === "" || window.location.pathname === "/")}>
       {cardsContent.map((x) => (
         <Card onClick={(e) => clickHandler(x.path)}>{x.name}</Card>
       ))}
