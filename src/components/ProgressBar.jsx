@@ -32,7 +32,7 @@ function ProgressBar() {
     return () => {
       clearInterval(progressBarExpander);
     }
-  }, [])
+  })
   
   return (
     <Container>
